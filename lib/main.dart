@@ -36,7 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
     Item(name: "Item 3", id: "3", store: "smiths"),
     Item(name: "Item 4", id: "4", store: "smiths"),
   ];
-  int _counter = 0;
+  // int _counter = 0;
 
   void _incrementCounter() {
     setState(() {});
@@ -48,52 +48,66 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: ListView.separated(
-            itemBuilder: (ctx, index) {
-              return Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(primary: Colors.purple),
-                    child: Card(
-                      // elevation: 10,
-                      child: Container(
-                        padding: EdgeInsets.all(30),
-                        color: Colors.blue,
-                        // margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
-                        child: Text("i have the"),
+      // body: Center(
+      body: ListView.separated(
+          itemBuilder: (ctx, index) {
+            return
+                // Stack(fit: StackFit.expand, children: [
+                Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(primary: Colors.purple),
+                      child: Card(
+                        elevation: 10,
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                padding: EdgeInsets.all(30),
+                                color: Colors.blue,
+                                // margin: EdgeInsets.symmetric(horizontal: 30, vertical: 30),
+                                child: Text("i have the"),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
+                      onPressed: () {},
                     ),
-                    onPressed: () {},
                   ),
-                ],
-              );
-            },
-            separatorBuilder: (context, index) {
-              return SizedBox(
-                height: 10,
-              );
-            },
-            itemCount: 5),
+                ),
+              ],
+            );
+            // ]);
+          },
+          separatorBuilder: (context, index) {
+            return SizedBox(
+              height: 10,
+            );
+          },
+          itemCount: 5),
 
-        //  Column(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: <Widget>[
-        //     // Row(children: [
-        //     // ListView.builder(
-        //     //   itemBuilder: (ctx, index) {
-        //     //     return Text("i have the");
-        //     //   },
-        //     //   itemCount: 5,
-        //     // ),
-        //     // ])
-        //     // Row(
-        //     //   children: [Text("Hello there")],
-        //     // ),
-        //   ],
-        // ),
-      ),
+      //  Column(
+      //   mainAxisAlignment: MainAxisAlignment.center,
+      //   children: <Widget>[
+      //     // Row(children: [
+      //     // ListView.builder(
+      //     //   itemBuilder: (ctx, index) {
+      //     //     return Text("i have the");
+      //     //   },
+      //     //   itemCount: 5,
+      //     // ),
+      //     // ])
+      //     // Row(
+      //     //   children: [Text("Hello there")],
+      //     // ),
+      //   ],
+      // ),
+      // ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
